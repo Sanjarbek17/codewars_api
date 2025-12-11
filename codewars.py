@@ -450,7 +450,7 @@ class User:
 
         returns(int): total number of completed kata
         """
-        if self.check_username() == True:
+        if self.data:
             return self.data["codeChallenges"]["totalCompleted"]
         return False
 
