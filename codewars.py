@@ -180,7 +180,7 @@ class Users:
         return result
 
     def export_solved_katas_count_to_csv(
-        self, from_date: str, file_path: str = "output/codewars_katas.csv"
+        self, from_date: str = None, file_path: str = "output/codewars_katas.csv"
     ) -> str:
         """
         This method exports the count of solved katas for all users to a CSV file.
@@ -462,6 +462,8 @@ class User:
             date(str): date in format "year-month-day" (e.g., "2024-08-02")
         returns(int): number of completed kata
         """
+        if not date_str:
+            return self.get_total()
         date = datetime.strptime(date_str, "%Y-%m-%d")
         data_problems = self.completed["data"]
         count = 0
